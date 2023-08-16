@@ -28,6 +28,8 @@ func (r *mutationResolver) CreateLink(ctx context.Context, input model.NewLink) 
 
 	// 2
 	link.User = user
+	link.Title = input.Title
+	link.Address = input.Address
 	linkID := link.Save()
 	graphqlUser := &model.User{
 		ID:   user.ID,
